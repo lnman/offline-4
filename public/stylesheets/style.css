@@ -1,0 +1,39 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+.piece{
+	height: 50px;
+	float: left;
+	position: relative;
+	background: gray;
+	color: white;
+	text-align: center;
+	padding-top: 20px;
+}
+.piece[x-val=" "]{
+	background: white;
+	color: blue;
+}
+.piece:hover{
+	color: blue;
+	background: rgb(200, 199, 199);
+	border-color: #550000;
+	
+}
+.play_ground,.cc{
+	width: 100%;
+	display: block;
+}
+.cc{
+	float: left;
+	position: relative;
+}
+
+.main{
+	height: inherit;
+}

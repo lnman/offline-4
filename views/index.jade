@@ -1,0 +1,28 @@
+doctype html
+html(ng-app="npuzzleApp")
+  head
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src="/javascripts/angular.js")
+    script(src="/javascripts/main.js")
+  body
+    h2 A variant of n-puzzle problem using A* algorithm and pattern database implementation
+    div(ng-controller="appController")
+      div(class="summary")
+        h4 player mode: {{PLAYING_MODES[_playing_mode]}}
+        h4 step count: {{_step_count}}
+      div(class="main")
+        div(class="play_ground")
+          div(ng-repeat="val in _vals")
+            div(class="piece",x-val="{{val}}",style="width:{{100/_divs}}%") {{val}}
+      br  
+      p        
+      div(class="cc")
+        div(class="control")
+          input(type="number" ng-model="_row" ng-change="param_change()" ng-disabled="_disable_i")
+          input(type="number" ng-model="_column" ng-change="param_change()" ng-disabled="_disable_i")
+          button(ng-click="gen_random()" ng-disabled="_disable_i") randomize data
+          button(ng-click="auto_play()" ng-disabled="_disable_i") auto play
+          button(ng-click="manual_play()" ng-disabled="_disable_i") manual play
+          br
+          h4 select speed of the program
+            select(ng-model="_play_speed" ng-options="speed for speed in SPEED_OPTIONS")
