@@ -10,6 +10,7 @@ html(ng-app="npuzzleApp")
       div(class="summary")
         h4 player mode: {{PLAYING_MODES[_playing_mode]}}
         h4 step count: {{_step_count}}
+        h4 solvability: {{_can_be_solved}} (works only if the grid is n X n)
       div(class="main")
         div(class="play_ground")
           div(ng-repeat="val in _vals")
@@ -26,3 +27,5 @@ html(ng-app="npuzzleApp")
           br
           h4 select speed of the program
             select(ng-model="_play_speed" ng-options="speed for speed in SPEED_OPTIONS")
+          h4 select algorithm
+            select(ng-model="_which_algo" ng-options="algo for algo in ALGORITHM_OPTIONS")
